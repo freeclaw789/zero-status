@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroClaw DOOM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: #e6edf3;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            color: #ff6600;
+            text-shadow: 0 0 10px #ff6600;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .badge {
+            display: inline-block;
+            background: #21262d;
+            border: 1px solid #30363d;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            margin-bottom: 15px;
+        }
+        #dos-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 4/3;
+            border: 2px solid #ff6600;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(255,102,0,0.3);
+            margin: 20px 0;
+        }
+        .controls {
+            text-align: center;
+            max-width: 600px;
+            padding: 10px;
+            background: #21262d;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+        .controls h3 {
+            color: #ff6600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .key-row {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 8px 0;
+        }
+        .key {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            min-width: 60px;
+        }
+        .key.action { border-color: #ff6600; color: #ff6600; }
+        .key.move { border-color: #58a6ff; color: #58a6ff; }
+        footer {
+            margin-top: 20px;
+            font-size: 0.75rem;
+            color: #484f58;
+            text-align: center;
+        }
+        .back {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .back:hover { border-color: #58a6ff; }
+    </style>
+    <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
+    <link rel="stylesheet" href="https://js-dos.com/6.22/current/js-dos.css">
+</head>
+<body>
+    <header>
+        <h1>😈 ZEROCLAW DOOM</h1>
+        <div class="badge">WebAssembly • js-dos • Experimental</div>
+    </header>
+    
+    <div id="dos-container"></div>
+    
+    <div class="controls">
+        <h3>🕹️ Controls</h3>
+        <div class="key-row">
+            <span class="key move">↑ Forward</span>
+            <span class="key action">CTRL<br>Fire</span>
+            <span class="key move">↓ Back</span>
+        </div>
+        <div class="key-row">
+            <span class="key move">← Turn</span>
+            <span class="key move">→ Turn</span>
+            <span class="key">Space Use</span>
+        </div>
+        <div class="key-row">
+            <span style="color:#8b949e; font-size:0.8rem;">ALT + Arrows to Strafe</span>
+        </div>
+    </div>
+    
+    <a href="../" class="back">← Back to Dashboard</a>
+    
+    <footer>
+        DOOM™ is a trademark of id Software. Shareware version.<br>
+        Powered by <a href="https://js-dos.com" style="color:#58a6ff;">js-dos</a> emscripten port.
+    </footer>
+
+    <script>
+        Dos(document.getElementById("dos-container"), {
+            url: "https://js-dos.com/6.22/current/doom.jsdos",
+            theme: "dark",
+            background: "#0d1117"
+        });
+    </script>
+</body>
+</html>
